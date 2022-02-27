@@ -3,7 +3,7 @@ import Image from 'next/image';
 import styled from 'styled-components';
 
 import freeLancers from '../../../../public/assets/images/guy-shows-document-girl-group-young-freelancers-office-have-conversation-working.jpg';
-import surgeryNurse from '../../../../public/assets/images/guy-shows-document-girl-group-young-freelancers-office-have-conversation-working.jpg';
+import surgeryNurse from '../../../../public/assets/images/young-female-surgeon-with-medical-team-back-before-surgery.jpg';
 const Container = styled.div`
   background-color: #f2f3f4;
 
