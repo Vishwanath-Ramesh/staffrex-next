@@ -119,7 +119,7 @@ function NavBar() {
       <div className="nav__links-search">
         <Search />
         <ul className="nav__links">
-          <Link key="/" exact Link href="/" exact>
+          <Link key="/" href="/">
             <a className={currentRoute === '/' ? 'active' : ''}>Home</a>
           </Link>
           <Link key="/about" href="/about">
