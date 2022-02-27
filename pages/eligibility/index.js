@@ -14,7 +14,7 @@ const Container = styled.section`
   height: 100%;
   width: 100%;
   background-color: #f2f3f4;
-  padding: 0px 10%;
+  padding: 1rem 10%;
 
   h1 {
     color: var(--primary-text);
@@ -43,6 +43,10 @@ const Container = styled.section`
     td {
       padding: 1rem;
       border: 1px solid black;
+    }
+
+    tr td:first-child {
+      font-weight: bold;
     }
 
     tr td:not(:first-child) {
@@ -106,6 +110,11 @@ const Container = styled.section`
   }
 
   .eligibility__nmcprocess {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+
     .eligibilty__registercta {
       background-color: #0b5596;
       color: #fff;
@@ -174,7 +183,7 @@ function Eligibility() {
       </div>
       <div className="eligibility__nmcprocess">
         <h1>{data?.eligibility?.nmcProcessTitle}</h1>
-        <Image src={nmcProcess} height={800} width={900} alt="nmc" />
+        <Image src={nmcProcess} height={400} width={500} alt="nmc" />
         <Button
           className="eligibilty__registercta"
           label={data?.eligibility?.nmcProcessCTA}

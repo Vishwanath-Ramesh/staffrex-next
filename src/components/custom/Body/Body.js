@@ -86,12 +86,12 @@ function Body() {
     <Container>
       <h1>WHAT IS STAFFREX?</h1>
       <div className="body__whatisstaffrex">
-        <h5 className="whatisstaffrex__content">
+        <p className="whatisstaffrex__content">
           We are an International recruitment firm specializing in recruiting
           Healthcare & IT professionals. We explore and reach out to people for
           successful deployments of Nurses and Doctors with an excellent track
           record of 98% of retention post-interview
-        </h5>
+        </p>
         <Image src={freeLancers} alt="Freelancers" />
       </div>
       <h1>WHAT WE DO?</h1>

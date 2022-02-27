@@ -112,7 +112,7 @@ const Nav = styled.nav`
 function NavBar() {
   const router = useRouter();
   const currentRoute = router.pathname;
-  console.log('debug', currentRoute);
+
   return (
     <Nav>
       <Image width={200} height={180} src={staffRexLogo} alt="Staffrex logo" />

@@ -72,20 +72,27 @@ const Container = styled.section`
       ${'' /* padding: 0.5rem; */}
       border: 1px solid #fff;
       row-gap: 10px;
+      position: relative;
 
       img {
         min-height: 280px;
         min-width: 200px;
         background: #fff;
+        object-fit: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
       }
 
       .details__name {
         color: var(--primary-text);
+        font-weight: bold;
       }
 
       .details__role {
         color: #000;
         font-size: 10px;
+        font-weight: bold;
       }
     }
 
@@ -129,7 +136,7 @@ function About() {
             key={team.name}
             className={`about__teammember ${team.lead ? 'lead' : ''}`}
           >
-            <Image height={280} width={260} src={ravishPhoto} alt="" />
+            <Image height={400} width={340} src={ravishPhoto} alt={team.name} />
             <div className="details">
               <div className="details__name">{team.name}</div>
               <div className="details__role">{team.role}</div>

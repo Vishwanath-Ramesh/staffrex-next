@@ -77,7 +77,7 @@ function Clients() {
     <Container>
       <header>
         <div className="whyus__overlay" />
-        <Image src={welcomeImage} alt="Welcome" />
+        <Image src={welcomeImage} alt="Welcome" priority />
         <div className="whyus__overlaytext">
           <h1>DEAR CLIENTS,</h1>
           <p>Why choose us?</p>

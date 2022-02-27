@@ -95,7 +95,7 @@ function Header() {
   return (
     <Container>
       <div className="header__overlay" />
-      <Image src={bannerNurses} alt="Banner nurses" />
+      <Image src={bannerNurses} alt="Banner nurses" priority />
       <section className="home__overlaytext">
         <h1>A Global Reach For The Nursing Jobs In The UK</h1>
         <Button label="Enroll Now" />
