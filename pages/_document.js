@@ -23,6 +23,16 @@ export default class MyDocument extends Document {
     return (
       <html>
         <Head>
+          <meta name="keywords" content="your, tags" />
+          <meta
+            name="description"
+            content="We are an International recruitment firm specializing in recruiting Healthcare & IT professionals. We explore and reach out to people for successful deployments of Nurses and Doctors with an excellent track record of 98% of retention post-interview"
+          />
+          <meta
+            name="subject"
+            content="A global reach for the nursing jobs in the UK"
+          />
+          <meta name="copyright" content="StaffRex" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link
             rel="preconnect"
