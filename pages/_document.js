@@ -23,16 +23,29 @@ export default class MyDocument extends Document {
     return (
       <html>
         <Head>
-          <meta name="keywords" content="your, tags" />
+          <meta name="keywords" content="IT Staffing, Medical, Recruitment" />
           <meta
             name="description"
             content="We are an International recruitment firm specializing in recruiting Healthcare & IT professionals. We explore and reach out to people for successful deployments of Nurses and Doctors with an excellent track record of 98% of retention post-interview"
           />
           <meta
             name="subject"
-            content="A global reach for the nursing jobs in the UK"
+            content="One stop solution for Medical & IT Staffing"
           />
           <meta name="copyright" content="StaffRex" />
+          <meta name="url" content="https://staffrex.vercel.app/"></meta>
+          <meta name="og:title" content="StaffRex" />
+          <meta name="og:type" content="website" />
+          <meta name="og:url" content="https://staffrex.vercel.app/" />
+          <meta
+            name="og:image"
+            content="https://www.facebook.com/108766975044985/photos/a.108767025044980/108767445044938/"
+          />
+          <meta name="og:site_name" content="StaffRex" />
+          <meta
+            name="og:description"
+            content="One stop solution for Medical & IT Staffing"
+          />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link
             rel="preconnect"
