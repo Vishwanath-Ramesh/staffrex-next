@@ -115,7 +115,7 @@ function NavBar() {
 
   return (
     <Nav>
-      <Image width={200} height={180} src={staffRexLogo} alt="Staffrex logo" />
+      <Image width={300} height={280} src={staffRexLogo} alt="Staffrex logo" />
       <div className="nav__links-search">
         <Search />
         <ul className="nav__links">

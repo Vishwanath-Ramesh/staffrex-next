@@ -71,11 +71,11 @@ function ContactDetails({ details }) {
             <div className="contactdetails__name">{item.name}</div>
             <div className="contactdetails__role">{item.role}</div>
             <div className="contactdetails__phone">
-              <FontAwesomeIcon icon={faMobileAlt} />
+              <FontAwesomeIcon width={15} icon={faMobileAlt} />
               <span>{item.phone}</span>
             </div>
             <div className="contactdetails__email">
-              <FontAwesomeIcon icon={faEnvelope} />
+              <FontAwesomeIcon width={15} icon={faEnvelope} />
               <a href={`mailto: ${item.email}`}>{item.email}</a>
             </div>
           </div>

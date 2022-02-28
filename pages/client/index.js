@@ -4,7 +4,6 @@ import styled from 'styled-components';
 
 import { DataContext } from '../../src/components/hooks/useData';
 import ContactDetails from '../../src/components/custom/ContactDetails/ContactDetails';
-import Testimonials from '../../src/components/custom/Testimonials/Testimonials';
 import welcomeImage from '../../public/assets/images/welcome.jpg';
 
 const Container = styled.section`
@@ -24,6 +23,11 @@ const Container = styled.section`
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+  }
+
+  h1 {
+    color: var(--primary-text);
+    margin: 3rem 0px;
   }
 
   h1::after {
@@ -88,7 +92,6 @@ function Clients() {
           </ul>
         </div>
       </header>
-      <Testimonials />
       <ContactDetails details={data?.whyChooseUs?.clients?.contactDetails} />
     </Container>
   );

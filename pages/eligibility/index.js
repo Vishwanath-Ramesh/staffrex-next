@@ -8,7 +8,7 @@ import Button from '../../src/components/common/button';
 import { DataContext } from '../../src/components/hooks/useData';
 import nmcLogo from '../../public/assets/images/nmc-logo.jpeg';
 import nmcProcess from '../../public/assets/images/nmc-process-transparent.png';
-import applyTimeline from '../../public/assets/images/apply-timeline.png';
+import applyTimeline from '../../public/assets/images/nmc-eligibility-timeline.jpeg';
 
 const Container = styled.section`
   height: 100%;
@@ -128,7 +128,7 @@ function Eligibility() {
   return (
     <Container>
       <h1>{data?.eligibility?.youCallApplyTitle}</h1>
-      <Image src={applyTimeline} height={700} width={200} alt="Apply process" />
+      <Image src={applyTimeline} height={700} width={900} alt="Apply process" />
       {data?.eligibility?.languageTable && (
         <table>
           {data?.eligibility?.languageTable?.rows?.map((row, rowIdx) => (

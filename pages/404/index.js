@@ -45,7 +45,7 @@ const Container = styled.div`
   }
 `;
 
-const PageNotFound = (props) => {
+const PageNotFound = () => {
   const router = useRouter();
 
   return (

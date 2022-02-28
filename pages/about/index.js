@@ -136,7 +136,12 @@ function About() {
             key={team.name}
             className={`about__teammember ${team.lead ? 'lead' : ''}`}
           >
-            <Image height={400} width={340} src={ravishPhoto} alt={team.name} />
+            <Image
+              height={400}
+              width={340}
+              src={`/assets/images/${team.imageFileName}`}
+              alt={team.name}
+            />
             <div className="details">
               <div className="details__name">{team.name}</div>
               <div className="details__role">{team.role}</div>

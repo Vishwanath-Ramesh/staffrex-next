@@ -42,7 +42,8 @@
                 "name": "RAVISH KUMAR",
                 "role": "Managing Director",
                 "about": "Mr. Ravish Kumar is from India, living in Aberdeen, Scotland for more than 7 years. He is an IT graduate with immense Procurement & Supply Chain Management experience for 10+ years in the IT & Banking Sector. He has 3+years of experience in a Recruitment Agency as a Compliance & Account Manager and Managed 4 Major NHS Trusts in England and deployed around 300+ Nurses. Before Registering StaffRex Limited, he worked as a freelancer for international nurses and has successfully deployed 18 nurses in NHS hospitals through various agencies.",
-                "lead": true
+                "lead": true,
+                "imageFileName": "ravish-photo.jpeg"
             },
             {
                 "name": "SRIKANTH BEJUGAMA",
@@ -54,7 +55,8 @@
             },
             {
                 "name": "AISHWARYA B ASHKAR",
-                "role": "Business Development and Marketing Manager"
+                "role": "Business Development and Marketing Manager",
+                "imageFileName": "aishwarya-photo.jpeg"
             },
             {
                 "name": "ALEX OLIVER",
@@ -62,10 +64,11 @@
             },
             {
                 "name": "GEETHA RAJKUMAR",
-                "role": "Compliance Consultant"
+                "role": "Compliance Consultant",
+                "imageFileName": "geetha-photo.jpeg"
             },
             {
-                "name": "PRIYA",
+                "name": "SHANMUGAPRIYA",
                 "role": "Business Development Associate"
             }
         ]
@@ -92,7 +95,7 @@
                 {
                     "name": "AISHWARYA B ASHKAR",
                     "role": "Business Development and marketing manager",
-                    "phone": "07423270486",
+                    "phone": "07570640258",
                     "email": "Aishwarya@staffrex.co.uk"
                 }
             ]
@@ -196,12 +199,12 @@
                 "name": "MICHAEL COOPER",
                 "role": "Compliance and HR Consultant",
                 "phone": "07570640291",
-                "email": "07570640291"
+                "email": "Micheal@staffrex.co.uk"
             },
             {
                 "name": "AISHWARYA B ASHKAR",
                 "role": "Business Development and marketing manager",
-                "phone": "07423270486",
+                "phone": "07570640258",
                 "email": "Aishwarya@staffrex.co.uk"
             }
         ]

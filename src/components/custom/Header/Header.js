@@ -33,7 +33,7 @@ const Container = styled.header`
     position: absolute;
     top: 200px;
     left: 10%;
-    width: 20%;
+    ${'' /* width: 20%; */}
     z-index: 2;
 
     h1 {
@@ -97,7 +97,15 @@ function Header() {
       <div className="header__overlay" />
       <Image src={bannerNurses} alt="Banner nurses" priority />
       <section className="home__overlaytext">
-        <h1>A Global Reach For The Nursing Jobs In The UK</h1>
+        <h1>
+          A Global Reach
+          <br />
+          For The
+          <br />
+          Nursing Jobs
+          <br />
+          In The UK
+        </h1>
         <Button label="Enroll Now" />
       </section>
       <section className="header__services">

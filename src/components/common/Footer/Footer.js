@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import styled from 'styled-components';
+
 import facebook from '../../../../public/assets/images/facebook-bg.svg';
 import instagram from '../../../../public/assets/images/instagram-bg.svg';
 import whatsapp from '../../../../public/assets/images/whatsapp-bg.svg';
@@ -46,10 +47,28 @@ function Footer() {
       <p>CONTACT</p>
       <div className="footer__border" />
       <div className="footer__contacticons">
-        <Image width={60} height={60} src={facebook} alt="facebook" />
-        <Image width={60} height={60} src={instagram} alt="instagram" />
+        <a
+          href="https://www.facebook.com/StaffRex-Limited-108766975044985"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image width={60} height={60} src={facebook} alt="facebook" />
+        </a>
+        <a
+          href="https://www.instagram.com/staffrex_limited/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image width={60} height={60} src={instagram} alt="instagram" />
+        </a>
         <Image width={60} height={60} src={whatsapp} alt="whatsapp" />
-        <Image width={60} height={60} src={linkedin} alt="linkedin" />
+        <a
+          href="https://www.linkedin.com/company/staffrex-limited/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image width={60} height={60} src={linkedin} alt="linkedin" />
+        </a>
         <Image width={60} height={60} src={twitter} alt="twitter" />
         <Image width={60} height={60} src={youtube} alt="youtube" />
       </div>
