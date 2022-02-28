@@ -39,7 +39,7 @@ export default class MyDocument extends Document {
           <meta name="og:url" content="https://staffrex.vercel.app/" />
           <meta
             name="og:image"
-            content="https://www.facebook.com/108766975044985/photos/a.108767025044980/108767445044938/"
+            content="https://staffrex.vercel.app/assets/images/staffrex-logo.png"
           />
           <meta name="og:site_name" content="StaffRex" />
           <meta
