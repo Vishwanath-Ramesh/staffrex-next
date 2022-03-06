@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from 'next/head';
 import styled from 'styled-components';
 
 // import Testimonials from '../../src/components/custom/Testimonials/Testimonials';
@@ -66,6 +67,9 @@ const Container = styled.div`
 function Home() {
   return (
     <Container>
+      <Head>
+        <title>Home</title>
+      </Head>
       <Header />
       <Body />
       {/* <AboutUs /> */}

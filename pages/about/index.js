@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
+import Head from 'next/head';
 import Image from 'next/image';
 import styled from 'styled-components';
 
 import { DataContext } from '../../src/components/hooks/useData';
 import medicalTeam from '../../public/assets/images/successful-medical-team.jpg';
 import tabletImage from '../../public/assets/images/showing-tablet-s-blank-screen.jpg';
-import ravishPhoto from '../../public/assets/images/ravish-photo.jpeg';
+import countriesOfOrigin from '../../public/assets/images/countries-of-origin.jpeg';
 
 const Container = styled.section`
   height: 100%;
@@ -114,10 +115,14 @@ function About() {
 
   return (
     <Container>
+      <Head>
+        <title>About</title>
+      </Head>
       <h1>{data?.about?.aboutStaffRexTitle}</h1>
       <Image src={medicalTeam} alt="Banner nurses" />
       <p>{data?.about?.aboutStaffRex}</p>
       <h1>{data?.about?.countriesOfOriginTitle}</h1>
+      <Image src={countriesOfOrigin} alt="Countries of origin" />
       <div className="about__outreach">
         <h1>{data?.about?.outreachChannelsTitle}</h1>
         <div className="about__outreactcontent">

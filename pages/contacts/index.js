@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import Head from 'next/head';
 import styled from 'styled-components';
 
 import ContactDetails from '../../src/components/custom/ContactDetails/ContactDetails';
@@ -32,6 +33,9 @@ function Contacts() {
 
   return (
     <Container>
+      <Head>
+        <title>Contacts</title>
+      </Head>
       <ContactDetails details={data?.contacts?.contactLists} />
     </Container>
   );

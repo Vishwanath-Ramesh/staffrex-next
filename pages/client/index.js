@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import Head from 'next/head';
 import Image from 'next/image';
 import styled from 'styled-components';
 
@@ -79,6 +80,9 @@ function Clients() {
 
   return (
     <Container>
+      <Head>
+        <title>Client</title>
+      </Head>
       <header>
         <div className="whyus__overlay" />
         <Image src={welcomeImage} alt="Welcome" priority />

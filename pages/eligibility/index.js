@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import Head from 'next/head';
 import Image from 'next/image';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -11,6 +12,8 @@ import nmcProcess from '../../public/assets/images/nmc-process-transparent.png';
 import applyTimeline from '../../public/assets/images/nmc-eligibility-timeline.jpeg';
 
 const Container = styled.section`
+  display: flex;
+  flex-direction: column;
   height: 100%;
   width: 100%;
   background-color: #f2f3f4;
@@ -33,7 +36,7 @@ const Container = styled.section`
 
   table {
     border-collapse: collapse;
-    margin: auto;
+    margin: 2rem auto;
 
     th {
       background-color: var(--secondary-color);
@@ -109,6 +112,13 @@ const Container = styled.section`
     }
   }
 
+  .eligibility__news {
+    border: 2px solid var(--secondary-color);
+    background: #f2f3f4;
+    margin: 2rem auto;
+    font-weight: bold;
+  }
+
   .eligibility__nmcprocess {
     display: flex;
     flex-direction: column;
@@ -125,10 +135,21 @@ const Container = styled.section`
 function Eligibility() {
   const data = useContext(DataContext);
 
+  function handleNewsAndUpdateClick(e) {
+    window.open(data.eligibility.newsAndUpdateLink, '_blank');
+  }
+
+  function handleRegisterNow(e) {
+    window.open(data.eligibility.registerNowLink, '_blank');
+  }
+
   return (
     <Container>
+      <Head>
+        <title>Eligibility</title>
+      </Head>
       <h1>{data?.eligibility?.youCallApplyTitle}</h1>
-      <Image src={applyTimeline} height={700} width={900} alt="Apply process" />
+      <Image src={applyTimeline} alt="Apply process" />
       {data?.eligibility?.languageTable && (
         <table>
           {data?.eligibility?.languageTable?.rows?.map((row, rowIdx) => (
@@ -181,12 +202,18 @@ function Eligibility() {
         <Image src={nmcLogo} alt="nmc" />
         <p>{data?.eligibility?.nmcDescription}</p>
       </div>
+      <Button
+        className="eligibility__news"
+        label="NEWS AND UPDATE"
+        onClick={handleNewsAndUpdateClick}
+      />
       <div className="eligibility__nmcprocess">
         <h1>{data?.eligibility?.nmcProcessTitle}</h1>
         <Image src={nmcProcess} height={400} width={500} alt="nmc" />
         <Button
           className="eligibilty__registercta"
-          label={data?.eligibility?.nmcProcessCTA}
+          label={data?.eligibility?.nmcProcessCTA || ''}
+          onClick={handleRegisterNow}
         />
       </div>
     </Container>

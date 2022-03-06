@@ -106,7 +106,7 @@ function Header() {
           <br />
           In The UK
         </h1>
-        <Button label="Enroll Now" />
+        <Button label="Apply Now" />
       </section>
       <section className="header__services">
         <div className="header__candidates" />

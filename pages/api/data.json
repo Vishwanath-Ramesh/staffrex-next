@@ -69,7 +69,8 @@
             },
             {
                 "name": "SHANMUGAPRIYA",
-                "role": "Business Development Associate"
+                "role": "Business Development Associate",
+                "imageFileName": "priya-photo.jpeg"
             }
         ]
     },
@@ -184,7 +185,9 @@
         "nmcTitle": "NMC",
         "nmcDescription": "NMC (Nursing And Midwifery Council) is a regulator for nursing and midwifery associates. Nurses who work in the UK should have registered with NMC to ensure that the qualifications of the nurses are according to the established standards.",
         "nmcProcessCTA": "REGISTER NOW",
-        "nmcProcessTitle": "NMC PROCESS"
+        "nmcProcessTitle": "NMC PROCESS",
+        "newsAndUpdateLink": "https://www.nmc.org.uk/news/news-and-updates/",
+        "registerNowLink": "https://www.nmc.org.uk/registration/joining-the-register/register-nurse-midwife/trained-outside-uk/how-to-guide/eligibility-and-qualification-application/begin/"
     },
     "contacts": {
         "contactTitle": "CONTACT DETAILS",

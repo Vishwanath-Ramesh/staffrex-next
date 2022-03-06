@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import Head from 'next/head';
 import Image from 'next/image';
 import styled from 'styled-components';
 
@@ -75,6 +76,9 @@ function Candidate() {
 
   return (
     <Container>
+      <Head>
+        <title>Candidate</title>
+      </Head>
       <header>
         <div className="whyus__overlay" />
         <Image src={youngSpecialist} alt="young specialist" />

@@ -1,7 +1,6 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 
 const Container = styled.div`
   display: flex;
@@ -64,12 +63,6 @@ const PageNotFound = () => {
       </div>
     </Container>
   );
-};
-
-PageNotFound.propTypes = {
-  history: PropTypes.shape({
-    goBack: PropTypes.func,
-  }).isRequired,
 };
 
 export default PageNotFound;

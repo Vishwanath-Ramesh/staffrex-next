@@ -3,6 +3,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 import staffRexLogo from '../../../../public/assets/images/staffrex-logo.png';
 import Search from '../Search/Search';
@@ -107,6 +109,25 @@ const Nav = styled.nav`
       }
     }
   }
+
+  ${
+    '' /* .navbar__bars {
+    display: none;
+  }
+
+  @media (max-width: 640px) {
+    .nav__links {
+      display: none !important;
+    }
+
+    .navbar__bars {
+      display: inline;
+      justify-self: flex-end;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+  } */
+  }
 `;
 
 function NavBar() {
@@ -118,6 +139,7 @@ function NavBar() {
       <Image width={300} height={280} src={staffRexLogo} alt="Staffrex logo" />
       <div className="nav__links-search">
         <Search />
+        {/* <FontAwesomeIcon className="navbar__bars" icon={faBars} /> */}
         <ul className="nav__links">
           <Link key="/" href="/">
             <a className={currentRoute === '/' ? 'active' : ''}>Home</a>
@@ -151,11 +173,6 @@ function NavBar() {
           <Link key="/eligibility" href="/eligibility">
             <a className={currentRoute === '/eligibility' ? 'active' : ''}>
               Eligibility criteria
-            </a>
-          </Link>
-          <Link key="/news" href="/news">
-            <a className={currentRoute === '/news' ? 'active' : ''}>
-              News & Updates
             </a>
           </Link>
           <Link key="/contacts" href="/contacts">

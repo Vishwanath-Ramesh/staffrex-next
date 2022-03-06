@@ -9,7 +9,7 @@ import linkedin from '../../../../public/assets/images/linkedin-bg.svg';
 import twitter from '../../../../public/assets/images/twitter-bg.svg';
 import youtube from '../../../../public/assets/images/youtube-bg.svg';
 
-const Container = styled.section`
+const Container = styled.footer`
   display: grid;
   grid-template-columns: auto 3px auto 3px 1fr;
   grid-template-rows: 1fr;
