@@ -17,12 +17,12 @@ const StyledButton = styled.button`
 `;
 
 function Button(props) {
-  const { label, color, className, onClick } = props;
+  const { label, color, className, type, onClick } = props;
 
   return (
     <StyledButton
       className={className}
-      type="button"
+      type={type || 'button'}
       color={color}
       onClick={onClick}
     >
@@ -34,12 +34,14 @@ function Button(props) {
 Button.defaultProps = {
   color: 'secondary',
   className: '',
+  type: 'button',
 };
 
 Button.propTypes = {
   label: PropTypes.string.isRequired,
   color: PropTypes.oneOf(['primary', 'secondary']),
   className: PropTypes.string,
+  type: PropTypes.string,
 };
 
 export default Button;

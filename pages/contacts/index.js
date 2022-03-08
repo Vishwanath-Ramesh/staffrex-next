@@ -2,7 +2,8 @@ import React, { useContext } from 'react';
 import Head from 'next/head';
 import styled from 'styled-components';
 
-import ContactDetails from '../../src/components/custom/ContactDetails/ContactDetails';
+import ApplicationForm from '../../src/components/custom/ApplicationForm';
+import ContactDetails from '../../src/components/custom/ContactDetails';
 import { DataContext } from '../../src/components/hooks/useData';
 
 const Container = styled.section`
@@ -37,6 +38,7 @@ function Contacts() {
         <title>Contacts</title>
       </Head>
       <ContactDetails details={data?.contacts?.contactLists} />
+      <ApplicationForm />
     </Container>
   );
 }

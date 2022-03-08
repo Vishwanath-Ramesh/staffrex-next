@@ -4,7 +4,7 @@ import Image from 'next/image';
 import styled from 'styled-components';
 
 import { DataContext } from '../../src/components/hooks/useData';
-import ContactDetails from '../../src/components/custom/ContactDetails/ContactDetails';
+import ContactDetails from '../../src/components/custom/ContactDetails';
 import Testimonials from '../../src/components/custom/Testimonials/Testimonials';
 import youngSpecialist from '../../public/assets/images/team-young-specialist-doctors-standing.jpg';
 

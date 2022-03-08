@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import styled from 'styled-components';
 
 import bannerNurses from '../../../../public/assets/images/female-nurse-doctor-look-professional-smiling.png';
@@ -92,6 +93,12 @@ const Container = styled.header`
 `;
 
 function Header() {
+  const router = useRouter();
+
+  function handleApplyNow() {
+    router.push('/contacts#application-form');
+  }
+
   return (
     <Container>
       <div className="header__overlay" />
@@ -106,7 +113,7 @@ function Header() {
           <br />
           In The UK
         </h1>
-        <Button label="Apply Now" />
+        <Button label="Apply Now" onClick={handleApplyNow} />
       </section>
       <section className="header__services">
         <div className="header__candidates" />

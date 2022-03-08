@@ -136,7 +136,13 @@ function NavBar() {
 
   return (
     <Nav>
-      <Image width={300} height={280} src={staffRexLogo} alt="Staffrex logo" />
+      <Image
+        width={300}
+        height={280}
+        src={staffRexLogo}
+        alt="Staffrex logo"
+        priority
+      />
       <div className="nav__links-search">
         <Search />
         {/* <FontAwesomeIcon className="navbar__bars" icon={faBars} /> */}

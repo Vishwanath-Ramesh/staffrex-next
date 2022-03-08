@@ -211,5 +211,48 @@
                 "email": "Aishwarya@staffrex.co.uk"
             }
         ]
+    },
+    "applicationForm": {
+        "title": "APPLICATION FORM",
+        "firstNameLabel": "First Name",
+        "lastNameLabel": "Last Name",
+        "emailAddressLabel": "Email Address",
+        "whatsappNumberLabel": "Whatsapp Number",
+        "takenOETLabel": "Have you taken OET?",
+        "OETTakenItems": [
+            {
+                "id": "YES",
+                "value": "Yes",
+                "label": "Yes"
+            },
+            {
+                "id": "NO",
+                "value": "No",
+                "label": "No"
+            }
+        ],
+        "OETReadingLabel": "Reading",
+        "OETWritingLabel": "Writing",
+        "OETListeningLabel": "Listening",
+        "OETSpeakingLabel": "Speaking",
+        "takenIELTSLabel": "Have you taken IELTS?",
+        "IELTSTakenItems": [
+            {
+                "id": "YES",
+                "value": "Yes",
+                "label": "Yes"
+            },
+            {
+                "id": "NO",
+                "value": "No",
+                "label": "No"
+            }
+        ],
+        "IELTSReadingLabel": "Reading",
+        "IELTSWritingLabel": "Writing",
+        "IELTSListeningLabel": "Listening",
+        "IELTSSpeakingLabel": "Speaking",
+        "attachCVLabel": "Attach CV",
+        "applyNowCTALabel": "Apply Now"
     }
 }
