@@ -24,8 +24,8 @@ async function requestHandler(req, res) {
   } = JSON.parse(req.body);
 
   //     mailClient.sendMail({
-  //       from: `"Jewel Store" <vishwanathr.dev@outlook.com>`,
-  //       to: `vishwanathr.dev@outlook.com`,
+  //       from: `"Jewel Store" <info@staffrex.co.uk>`,
+  //       to: `info@staffrex.co.uk`,
   //       subject: 'Welcome to Jewel store',
   //       text: '',
   //       html: `
@@ -249,8 +249,8 @@ async function requestHandler(req, res) {
 
   try {
     const applyMail = await mailClient.sendMail({
-      from: `"StaffRex" <vishwanathr.dev@outlook.com>`,
-      to: `vishwanathr.dev@outlook.com`,
+      from: `"StaffRex" <info@staffrex.co.uk>`,
+      to: `info@staffrex.co.uk`,
       subject: 'New candidate registration',
       text: 'Application form',
       html: `
@@ -373,7 +373,7 @@ async function requestHandler(req, res) {
     if (applyMail.messageId)
       try {
         await mailClient.sendMail({
-          from: `"StaffRex" <vishwanathr.dev@outlook.com>`,
+          from: `"StaffRex" <info@staffrex.co.uk>`,
           to: emailAddress,
           subject: 'Candidate registration',
           text: 'Application form',
