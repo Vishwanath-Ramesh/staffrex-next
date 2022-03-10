@@ -2,6 +2,7 @@ import nodemailer from 'nodemailer';
 
 // Create the transporter with the required configuration for Outlook
 // change the user and pass !
+console.log('smtp', process.env.SMTP_USER);
 const transporter = nodemailer.createTransport({
   host: 'smtp-mail.outlook.com', // hostname
   secureConnection: false, // TLS requires secureConnection to be false
@@ -10,8 +11,8 @@ const transporter = nodemailer.createTransport({
     ciphers: 'SSLv3',
   },
   auth: {
-    user: 'vishwanathr.dev@outlook.com',
-    pass: 'Vichu9@outlook',
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASSWORD,
   },
 });
 
