@@ -407,4 +407,12 @@ async function requestHandler(req, res) {
 
 const handler = nc().use(cors()).post(requestHandler);
 
+export const config = {
+  api: {
+    bodyParser: {
+      sizeLimit: '50mb',
+    },
+  },
+};
+
 export default handler;
