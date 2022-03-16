@@ -249,7 +249,7 @@ async function requestHandler(req, res) {
 
   try {
     const applyMail = await mailClient.sendMail({
-      from: `"StaffRex" <info@staffrex.co.uk>`,
+      from: `"StaffRex" <staffrex@outlook.com>`,
       to: `info@staffrex.co.uk`,
       subject: 'New candidate registration',
       text: 'Application form',
@@ -292,6 +292,8 @@ async function requestHandler(req, res) {
     </style>
   </head>
   <body>
+    <p>A new candidate has been registered with the below details.</p>
+    <br>
     <table>
       <thead>
         <tr>
@@ -373,7 +375,7 @@ async function requestHandler(req, res) {
     if (applyMail.messageId)
       try {
         await mailClient.sendMail({
-          from: `"StaffRex" <info@staffrex.co.uk>`,
+          from: `"StaffRex" <staffrex@outlook.com>`,
           to: emailAddress,
           subject: 'Candidate registration',
           text: 'Application form',
@@ -395,7 +397,9 @@ async function requestHandler(req, res) {
         if (error) console.log('Acknowledgement mail not sent');
       }
 
-    return res.status(200).json({ data: 'Application sent successfully' });
+    return res
+      .status(200)
+      .json({ data: 'Thanks for submitting the application' });
   } catch (error) {
     res
       .status(400)
