@@ -151,7 +151,7 @@ async function requestHandler(req, res) {
       ],
     });
 
-    if (applyMail.accepted)
+    if (false)
       ackMail = await mailClient.sendMail({
         from: `"StaffRex" <staffrex@outlook.com>`,
         // to: emailAddress,
@@ -173,13 +173,9 @@ async function requestHandler(req, res) {
   `,
       });
 
-    return res
-      .status(200)
-      .json({
-        data: 'Thanks for submitting the application',
-        applyMail,
-        ackMail,
-      });
+    return res.status(200).json({
+      data: 'Thanks for submitting the application',
+    });
   } catch (error) {
     res
       .status(400)
