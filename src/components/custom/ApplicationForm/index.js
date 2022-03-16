@@ -118,32 +118,37 @@ function ApplicationForm() {
     }
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
 
     setState((currentState) => ({ ...currentState, showLoader: true }));
-    getAPIData(apiEndPoints.sendMail.method, apiEndPoints.sendMail.url, state, {
-      'content-type': 'multipart/form-data',
-      // 'content-type': 'application/json',
-    })
-      .then((response) => {
-        setState({
-          ...initialState,
-          showNotification: true,
-          showLoader: false,
-          severity: 'success',
-          notificationMessage: response.data.data,
-        });
-      })
-      .catch((err) =>
-        setState({
-          ...initialState,
-          showNotification: true,
-          showLoader: false,
-          severity: 'error',
-          notificationMessage: err.response.data.message,
-        })
-      );
+    const response = await getAPIData(
+      apiEndPoints.sendMail.method,
+      apiEndPoints.sendMail.url,
+      state,
+      {
+        'content-type': 'multipart/form-data',
+        // 'content-type': 'application/json',
+      }
+    );
+
+    if (response.status === 200) {
+      setState({
+        ...initialState,
+        showNotification: true,
+        showLoader: false,
+        severity: 'success',
+        notificationMessage: response.data.data,
+      });
+    } else {
+      setState({
+        ...initialState,
+        showNotification: true,
+        showLoader: false,
+        severity: 'error',
+        notificationMessage: JSON.stringify(response.data),
+      });
+    }
   }
 
   const handleClose = (event, reason) => {
