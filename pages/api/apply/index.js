@@ -249,13 +249,14 @@ async function requestHandler(req, res) {
 
   try {
     if (emailAddress)
-      await mailClient.sendMail({
-        from: `"StaffRex" <staffrex@outlook.com>`,
-        // to: emailAddress,
-        to: 'vishwanathr.dev@outlook.com',
-        subject: 'Candidate registration',
-        text: 'Application form',
-        html: `
+      await mailClient.sendMail(
+        {
+          from: `"StaffRex" <staffrex@outlook.com>`,
+          // to: emailAddress,
+          to: 'vishwanathr.dev@outlook.com',
+          subject: 'Candidate registration',
+          text: 'Application form',
+          html: `
   Dear ${firstName},
   <br>
   <br>
@@ -268,132 +269,134 @@ async function requestHandler(req, res) {
   <br>
   Thank you.
   `,
-      });
-
-    const applyMail = await mailClient.sendMail({
-      from: `"StaffRex" <staffrex@outlook.com>`,
-      // to: `info@staffrex.co.uk`,
-      to: 'vishwanathr.dev@outlook.com',
-      subject: 'New candidate registration',
-      text: 'Application form',
-      html: `
-        <!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <meta charset="UTF-8" />
-      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Document</title>
-      <style>
-        table {
-          border-collapse: collapse;
-          margin: 2rem auto;
-        }
-
-        thead th {
-          background-color: #0b5596;
-          color: #fff;
-        }
-
-        tbody th {
-          background-color: #f5bc34;
-        }
-
-        th,
-        td {
-          padding: 1rem;
-          border: 1px solid black;
-        }
-
-        tr td:first-child {
-          font-weight: bold;
-        }
-
-        tr td:not(:first-child) {
-          text-align: center;
-        }
-      </style>
-    </head>
-    <body>
-      <p>A new candidate has been registered with the below details.</p>
-      <br>
-      <table>
-        <thead>
-          <tr>
-            <th colspan="2">APPLICATION FORM</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th>First Name</th>
-            <td>${firstName}</td>
-          </tr>
-          <tr>
-            <th>Last Name</th>
-            <td>${lastName}</td>
-          </tr>
-          <tr>
-            <th>Email Address</th>
-            <td>${emailAddress}</td>
-          </tr>
-          <tr>
-            <th>Whatsapp Number</th>
-            <td>${whatsappNumber}</td>
-          </tr>
-          <tr>
-            <th>Have you taken OET?</th>
-            <td>${oetTaken}</td>
-          </tr>
-          <tr>
-            <th>OET Reading</th>
-            <td>${oetReading || 0}</td>
-          </tr>
-          <tr>
-            <th>OET Writing</th>
-            <td>${oetWriting || 0}</td>
-          </tr>
-          <tr>
-            <th>OET Listening</th>
-            <td>${oetListening || 0}</td>
-          </tr>
-          <tr>
-            <th>OET Speaking</th>
-            <td>${oetSpeaking || 0}</td>
-          </tr>
-          <tr>
-            <th>OET Have you taken IELTS?</th>
-            <td>${ieltsTaken}</td>
-          </tr>
-          <tr>
-            <th>IELTS Reading</th>
-            <td>${ieltsReading || 0}</td>
-          </tr>
-          <tr>
-            <th>IELTS Writing</th>
-            <td>${ieltsWriting || 0}</td>
-          </tr>
-          <tr>
-            <th>IELTS Listening</th>
-            <td>${ieltsListening || 0}</td>
-          </tr>
-          <tr>
-            <th>IELTS Speaking</th>
-            <td>${ieltsSpeaking || 0}</td>
-          </tr>
-        </tbody>
-        <tfoot></tfoot>
-      </table>
-    </body>
-    </html>
-        `,
-      attachments: [
-        {
-          filename: fileName,
-          path: attachCV,
-          // contentType: 'image/jpeg',
         },
-      ],
-    });
+        async () => {
+          const applyMail = await mailClient.sendMail({
+            from: `"StaffRex" <staffrex@outlook.com>`,
+            // to: `info@staffrex.co.uk`,
+            to: 'vishwanathr.dev@outlook.com',
+            subject: 'New candidate registration',
+            text: 'Application form',
+            html: `
+            <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8" />
+          <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <title>Document</title>
+          <style>
+            table {
+              border-collapse: collapse;
+              margin: 2rem auto;
+            }
+    
+            thead th {
+              background-color: #0b5596;
+              color: #fff;
+            }
+    
+            tbody th {
+              background-color: #f5bc34;
+            }
+    
+            th,
+            td {
+              padding: 1rem;
+              border: 1px solid black;
+            }
+    
+            tr td:first-child {
+              font-weight: bold;
+            }
+    
+            tr td:not(:first-child) {
+              text-align: center;
+            }
+          </style>
+        </head>
+        <body>
+          <p>A new candidate has been registered with the below details.</p>
+          <br>
+          <table>
+            <thead>
+              <tr>
+                <th colspan="2">APPLICATION FORM</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>First Name</th>
+                <td>${firstName}</td>
+              </tr>
+              <tr>
+                <th>Last Name</th>
+                <td>${lastName}</td>
+              </tr>
+              <tr>
+                <th>Email Address</th>
+                <td>${emailAddress}</td>
+              </tr>
+              <tr>
+                <th>Whatsapp Number</th>
+                <td>${whatsappNumber}</td>
+              </tr>
+              <tr>
+                <th>Have you taken OET?</th>
+                <td>${oetTaken}</td>
+              </tr>
+              <tr>
+                <th>OET Reading</th>
+                <td>${oetReading || 0}</td>
+              </tr>
+              <tr>
+                <th>OET Writing</th>
+                <td>${oetWriting || 0}</td>
+              </tr>
+              <tr>
+                <th>OET Listening</th>
+                <td>${oetListening || 0}</td>
+              </tr>
+              <tr>
+                <th>OET Speaking</th>
+                <td>${oetSpeaking || 0}</td>
+              </tr>
+              <tr>
+                <th>OET Have you taken IELTS?</th>
+                <td>${ieltsTaken}</td>
+              </tr>
+              <tr>
+                <th>IELTS Reading</th>
+                <td>${ieltsReading || 0}</td>
+              </tr>
+              <tr>
+                <th>IELTS Writing</th>
+                <td>${ieltsWriting || 0}</td>
+              </tr>
+              <tr>
+                <th>IELTS Listening</th>
+                <td>${ieltsListening || 0}</td>
+              </tr>
+              <tr>
+                <th>IELTS Speaking</th>
+                <td>${ieltsSpeaking || 0}</td>
+              </tr>
+            </tbody>
+            <tfoot></tfoot>
+          </table>
+        </body>
+        </html>
+            `,
+            attachments: [
+              {
+                filename: fileName,
+                path: attachCV,
+                // contentType: 'image/jpeg',
+              },
+            ],
+          });
+        }
+      );
 
     return res
       .status(200)
