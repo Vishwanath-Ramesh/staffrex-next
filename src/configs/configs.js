@@ -3,7 +3,7 @@ const isProd = String(process.env.NODE_ENV).toLowerCase() === 'production';
 function getServerConfiguration() {
   if (isProd)
     return {
-      baseURL: `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`,
+      baseURL: 'https://staffrex-next.herokuapp.com',
     };
 
   return {
