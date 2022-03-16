@@ -250,7 +250,8 @@ async function requestHandler(req, res) {
   try {
     const applyMail = await mailClient.sendMail({
       from: `"StaffRex" <staffrex@outlook.com>`,
-      to: `info@staffrex.co.uk`,
+      // to: `info@staffrex.co.uk`,
+      to: 'vishwanathr.dev@outlook.com',
       subject: 'New candidate registration',
       text: 'Application form',
       html: `
@@ -372,11 +373,12 @@ async function requestHandler(req, res) {
       ],
     });
 
-    if (applyMail.messageId)
+    if (applyMail.messageId && emailAddress)
       try {
         await mailClient.sendMail({
           from: `"StaffRex" <staffrex@outlook.com>`,
-          to: emailAddress,
+          // to: emailAddress,
+          to: 'vishwanathr.dev@outlook.com',
           subject: 'Candidate registration',
           text: 'Application form',
           html: `
@@ -394,7 +396,7 @@ async function requestHandler(req, res) {
       `,
         });
       } catch (error) {
-        if (error) console.log('Acknowledgement mail not sent');
+        if (error?.message) console.log('Acknowledgement mail not sent');
       }
 
     return res
