@@ -375,26 +375,28 @@ async function requestHandler(req, res) {
 
     if (applyMail.messageId && emailAddress)
       try {
-        await mailClient.sendMail({
-          from: `"StaffRex" <staffrex@outlook.com>`,
-          // to: emailAddress,
-          to: 'vishwanathr.dev@outlook.com',
-          subject: 'Candidate registration',
-          text: 'Application form',
-          html: `
-      Dear ${firstName},
-      <br>
-      <br>
-      Thank you for showing interest in applying at Staffrex.
-      <br>
-      We received your details.
-      <br>
-      We will review and respond as soon as possible.
-      <br>
-      <br>
-      Thank you.
-      `,
-        });
+        setTimeout(async () => {
+          await mailClient.sendMail({
+            from: `"StaffRex" <staffrex@outlook.com>`,
+            // to: emailAddress,
+            to: 'vishwanathr.dev@outlook.com',
+            subject: 'Candidate registration',
+            text: 'Application form',
+            html: `
+        Dear ${firstName},
+        <br>
+        <br>
+        Thank you for showing interest in applying at Staffrex.
+        <br>
+        We received your details.
+        <br>
+        We will review and respond as soon as possible.
+        <br>
+        <br>
+        Thank you.
+        `,
+          });
+        }, 9000);
       } catch (error) {
         if (error?.message) console.log('Acknowledgement mail not sent');
       }
