@@ -82,6 +82,8 @@ const Container = styled.section`
 
   ul {
     margin-left: var(--fa-li-margin, 0em);
+    margin: 0;
+    padding: 0;
 
     li {
       display: flex;
@@ -192,7 +194,11 @@ function Eligibility() {
       <ul className="fa-ul">
         {data?.eligibility?.documentsNeededLists?.map((document) => (
           <li>
-            <FontAwesomeIcon color="#43b649" icon={faCircleCheck} />
+            <FontAwesomeIcon
+              width={'20px'}
+              color="#43b649"
+              icon={faCircleCheck}
+            />
             <span>{document}</span>
           </li>
         ))}

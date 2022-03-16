@@ -14,10 +14,10 @@ const Nav = styled.nav`
   flex-flow: row nowrap;
   justify-content: space-between;
   gap: 1rem;
-  padding: 0.5rem 10%;
+  padding: 0rem 10%;
   ${'' /* position: fixed; */}
   width: 100%;
-  min-height: 200px;
+  ${'' /* min-height: 200px; */}
   align-items: center;
   background-color: #fff;
   z-index: 2;
@@ -137,8 +137,8 @@ function NavBar() {
   return (
     <Nav>
       <Image
-        width={300}
-        height={280}
+        width={250}
+        height={220}
         src={staffRexLogo}
         alt="Staffrex logo"
         priority

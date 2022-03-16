@@ -11,27 +11,34 @@ import youtube from '../../../../public/assets/images/youtube-bg.svg';
 
 const Container = styled.footer`
   display: grid;
-  grid-template-columns: auto 3px auto 3px 1fr;
+  grid-template-columns: auto 3px auto 3px auto;
   grid-template-rows: 1fr;
   align-items: center;
   justify-items: center;
   ${'' /* gap: 1rem; */}
   background-color: #3e3e3f;
-  height: 100px;
-  padding: 0px 10%;
+  ${'' /* height: 100px; */}
+  padding: 0.5rem 10%;
   color: #fff;
-  font-size: 2rem;
+  font-size: 1.5rem;
   column-gap: 2rem;
+  align-self: center;
+  width: 100%;
+
+  p {
+    margin: 0rem;
+  }
 
   .footer__border {
-    border-right: 3px solid var(--secondary-color);
+    border-right: 1px solid var(--secondary-color);
     height: 60%;
   }
 
   .footer__contacticons {
     display: flex;
     width: 100%;
-    justify-content: space-between;
+    column-gap: 2rem;
+    justify-content: flex-start;
 
     img {
       cursor: pointer;
@@ -52,25 +59,25 @@ function Footer() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Image width={60} height={60} src={facebook} alt="facebook" />
+          <Image width={50} height={30} src={facebook} alt="facebook" />
         </a>
         <a
           href="https://www.instagram.com/staffrex_limited/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Image width={60} height={60} src={instagram} alt="instagram" />
+          <Image width={50} height={30} src={instagram} alt="instagram" />
         </a>
-        <Image width={60} height={60} src={whatsapp} alt="whatsapp" />
+        <Image width={50} height={30} src={whatsapp} alt="whatsapp" />
         <a
           href="https://www.linkedin.com/company/staffrex-limited/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Image width={60} height={60} src={linkedin} alt="linkedin" />
+          <Image width={50} height={30} src={linkedin} alt="linkedin" />
         </a>
-        <Image width={60} height={60} src={twitter} alt="twitter" />
-        <Image width={60} height={60} src={youtube} alt="youtube" />
+        <Image width={50} height={30} src={twitter} alt="twitter" />
+        <Image width={50} height={30} src={youtube} alt="youtube" />
       </div>
     </Container>
   );

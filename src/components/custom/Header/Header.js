@@ -32,7 +32,7 @@ const Container = styled.header`
   .home__overlaytext {
     color: #fff;
     position: absolute;
-    top: 200px;
+    top: 100px;
     left: 10%;
     ${'' /* width: 20%; */}
     z-index: 2;

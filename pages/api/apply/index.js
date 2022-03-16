@@ -321,19 +321,19 @@ async function requestHandler(req, res) {
         </tr>
         <tr>
           <th>OET Reading</th>
-          <td>${oetReading}</td>
+          <td>${oetReading || 0}</td>
         </tr>
         <tr>
           <th>OET Writing</th>
-          <td>${oetWriting}</td>
+          <td>${oetWriting || 0}</td>
         </tr>
         <tr>
           <th>OET Listening</th>
-          <td>${oetListening}</td>
+          <td>${oetListening || 0}</td>
         </tr>
         <tr>
           <th>OET Speaking</th>
-          <td>${oetSpeaking}</td>
+          <td>${oetSpeaking || 0}</td>
         </tr>
         <tr>
           <th>OET Have you taken IELTS?</th>
@@ -341,19 +341,19 @@ async function requestHandler(req, res) {
         </tr>
         <tr>
           <th>IELTS Reading</th>
-          <td>${ieltsReading}</td>
+          <td>${ieltsReading || 0}</td>
         </tr>
         <tr>
           <th>IELTS Writing</th>
-          <td>${ieltsWriting}</td>
+          <td>${ieltsWriting || 0}</td>
         </tr>
         <tr>
           <th>IELTS Listening</th>
-          <td>${ieltsListening}</td>
+          <td>${ieltsListening || 0}</td>
         </tr>
         <tr>
           <th>IELTS Speaking</th>
-          <td>${ieltsSpeaking}</td>
+          <td>${ieltsSpeaking || 0}</td>
         </tr>
       </tbody>
       <tfoot></tfoot>

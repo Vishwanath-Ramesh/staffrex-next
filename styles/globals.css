@@ -28,3 +28,7 @@ body {
   display: flex;
   flex-flow: column nowrap;
 }
+
+.dispnone {
+  display: none !important;
+}

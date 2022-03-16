@@ -38,6 +38,10 @@ const Container = styled.section`
     background-size: cover;
   }
 
+  .about__aboutstaffrex {
+    line-height: 1.5rem;
+  }
+
   .about__outreactcontent {
     position: relative;
     display: flex;
@@ -120,7 +124,7 @@ function About() {
       </Head>
       <h1>{data?.about?.aboutStaffRexTitle}</h1>
       <Image src={medicalTeam} alt="Banner nurses" />
-      <p>{data?.about?.aboutStaffRex}</p>
+      <p className="about__aboutstaffrex">{data?.about?.aboutStaffRex}</p>
       <h1>{data?.about?.countriesOfOriginTitle}</h1>
       <Image src={countriesOfOrigin} alt="Countries of origin" />
       <div className="about__outreach">

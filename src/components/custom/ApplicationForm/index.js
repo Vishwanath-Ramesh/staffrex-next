@@ -41,6 +41,13 @@ const Container = styled.form`
       gap: 2rem;
     }
 
+    .application__oetfields,
+    .application__ieltsfields {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
     .application__submit {
       align-self: flex-start;
       font-weight: bold;
@@ -62,15 +69,15 @@ function ApplicationForm() {
     emailAddress: '',
     whatsappNumber: '',
     oetTaken: 'No',
-    oetReading: 0,
-    oetWriting: 0,
-    oetListening: 0,
-    oetSpeaking: 0,
+    oetReading: null,
+    oetWriting: null,
+    oetListening: null,
+    oetSpeaking: null,
     ieltsTaken: 'No',
-    ieltsReading: 0,
-    ieltsWriting: 0,
-    ieltsListening: 0,
-    ieltsSpeaking: 0,
+    ieltsReading: null,
+    ieltsWriting: null,
+    ieltsListening: null,
+    ieltsSpeaking: null,
     fileName: '',
   };
   const [state, setState] = useState(initialState);
@@ -199,38 +206,44 @@ function ApplicationForm() {
           selectedValue={state.oetTaken}
           isMandatory
         />
-        <Textbox
-          id="oet-reading"
-          name="oetReading"
-          type="number"
-          label={data.applicationForm.OETReadingLabel}
-          value={state.oetReading}
-          className="application__reading"
-        />
-        <Textbox
-          id="oet-writing"
-          name="oetWriting"
-          type="number"
-          label={data.applicationForm.OETWritingLabel}
-          value={state.oetWriting}
-          className="application__writing"
-        />
-        <Textbox
-          id="oet-listeninig"
-          name="oetListening"
-          type="number"
-          label={data.applicationForm.OETListeningLabel}
-          value={state.oetListening}
-          className="application__listeninig"
-        />
-        <Textbox
-          id="oet-speaking"
-          name="oetSpeaking"
-          type="number"
-          label={data.applicationForm.OETSpeakingLabel}
-          value={state.oetSpeaking}
-          className="application__speaking"
-        />
+        <div
+          className={`application__oetfields ${
+            state.oetTaken.toLowerCase() === 'no' ? 'dispnone' : ''
+          }`}
+        >
+          <Textbox
+            id="oet-reading"
+            name="oetReading"
+            type="number"
+            label={data.applicationForm.OETReadingLabel}
+            value={state.oetReading}
+            className="application__reading"
+          />
+          <Textbox
+            id="oet-writing"
+            name="oetWriting"
+            type="number"
+            label={data.applicationForm.OETWritingLabel}
+            value={state.oetWriting}
+            className="application__writing"
+          />
+          <Textbox
+            id="oet-listeninig"
+            name="oetListening"
+            type="number"
+            label={data.applicationForm.OETListeningLabel}
+            value={state.oetListening}
+            className="application__listeninig"
+          />
+          <Textbox
+            id="oet-speaking"
+            name="oetSpeaking"
+            type="number"
+            label={data.applicationForm.OETSpeakingLabel}
+            value={state.oetSpeaking}
+            className="application__speaking"
+          />
+        </div>
         <Radio
           name="ieltsTaken"
           label={data.applicationForm.takenIELTSLabel}
@@ -238,38 +251,44 @@ function ApplicationForm() {
           selectedValue={state.ieltsTaken}
           isMandatory
         />
-        <Textbox
-          id="ielts-reading"
-          name="ieltsReading"
-          type="number"
-          label={data.applicationForm.IELTSReadingLabel}
-          value={state.ieltsReading}
-          className="application__reading"
-        />
-        <Textbox
-          id="ielts-writing"
-          name="ieltsWriting"
-          type="number"
-          label={data.applicationForm.IELTSWritingLabel}
-          value={state.ieltsWriting}
-          className="application__writing"
-        />
-        <Textbox
-          id="ielts-listeninig"
-          name="ieltsListening"
-          type="number"
-          label={data.applicationForm.IELTSListeningLabel}
-          value={state.ieltsListening}
-          className="application__listeninig"
-        />
-        <Textbox
-          id="ielts-speaking"
-          name="ieltsSpeaking"
-          type="number"
-          label={data.applicationForm.IELTSSpeakingLabel}
-          value={state.ieltsSpeaking}
-          className="application__speaking"
-        />
+        <div
+          className={`application__ieltsfields ${
+            state.ieltsTaken.toLowerCase() === 'no' ? 'dispnone' : ''
+          }`}
+        >
+          <Textbox
+            id="ielts-reading"
+            name="ieltsReading"
+            type="number"
+            label={data.applicationForm.IELTSReadingLabel}
+            value={state.ieltsReading}
+            className="application__reading"
+          />
+          <Textbox
+            id="ielts-writing"
+            name="ieltsWriting"
+            type="number"
+            label={data.applicationForm.IELTSWritingLabel}
+            value={state.ieltsWriting}
+            className="application__writing"
+          />
+          <Textbox
+            id="ielts-listeninig"
+            name="ieltsListening"
+            type="number"
+            label={data.applicationForm.IELTSListeningLabel}
+            value={state.ieltsListening}
+            className="application__listeninig"
+          />
+          <Textbox
+            id="ielts-speaking"
+            name="ieltsSpeaking"
+            type="number"
+            label={data.applicationForm.IELTSSpeakingLabel}
+            value={state.ieltsSpeaking}
+            className="application__speaking"
+          />
+        </div>
         <FileUpload
           name="attachCV"
           id="attach-cv"
