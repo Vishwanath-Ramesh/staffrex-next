@@ -1,7 +1,8 @@
 import nc from 'next-connect';
 import cors from 'cors';
 
-import mailClient from './mail';
+import sgMail from './sendGrid';
+// import mailClient from './mail';
 
 async function requestHandler(req, res) {
   const {
@@ -26,10 +27,10 @@ async function requestHandler(req, res) {
   try {
     let ackMail = null;
 
-    const applyMail = await mailClient.sendMail({
-      from: `"StaffRex" <staffrex@outlook.com>`,
-      // to: `info@staffrex.co.uk`,
-      to: 'vishwanathr.dev@outlook.com',
+    const applyMail = await sgMail.send({
+      from: `info@staffrex.co.uk`,
+      to: `info@staffrex.co.uk`,
+      // to: 'vishwanathr.dev@outlook.com',
       subject: 'New candidate registration',
       text: 'Application form',
       html: `
@@ -145,20 +146,21 @@ async function requestHandler(req, res) {
       attachments: [
         {
           filename: fileName,
-          path: attachCV,
+          content: attachCV,
+          disposition: 'attachment',
           // contentType: 'image/jpeg',
         },
       ],
     });
 
-    if (false)
-      ackMail = await mailClient.sendMail({
-        from: `"StaffRex" <staffrex@outlook.com>`,
-        // to: emailAddress,
-        to: 'vishwanathr.dev@outlook.com',
-        subject: 'Candidate registration',
-        text: 'Application form',
-        html: `
+    // if (false)
+    ackMail = await sgMail.send({
+      from: `info@staffrex.co.uk`,
+      to: emailAddress,
+      // to: 'vishwanathr.dev@outlook.com',
+      subject: 'Candidate registration',
+      text: 'Application form',
+      html: `
   Dear ${firstName},
   <br>
   <br>
@@ -171,7 +173,7 @@ async function requestHandler(req, res) {
   <br>
   Thank you.
   `,
-      });
+    });
 
     return res.status(200).json({
       data: 'Thanks for submitting the application',
@@ -179,7 +181,7 @@ async function requestHandler(req, res) {
   } catch (error) {
     res
       .status(400)
-      .json({ message: 'Something went wrong!', error: error.message });
+      .json({ message: 'Something went wrong!', error: error.response.body });
   }
 }
 
