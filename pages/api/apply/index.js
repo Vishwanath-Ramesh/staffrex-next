@@ -25,15 +25,14 @@ async function requestHandler(req, res) {
   } = JSON.parse(req.body);
 
   try {
-    let ackMail = null;
-
-    const applyMail = await sgMail.send({
-      from: `info@staffrex.co.uk`,
-      to: `info@staffrex.co.uk`,
-      // to: 'vishwanathr.dev@outlook.com',
-      subject: 'New candidate registration',
-      text: 'Application form',
-      html: `
+    sgMail.send(
+      {
+        from: `info@staffrex.co.uk`,
+        to: `info@staffrex.co.uk`,
+        // to: 'vishwanathr.dev@outlook.com',
+        subject: 'New candidate registration',
+        text: 'Application form',
+        html: `
       <!DOCTYPE html>
   <html lang="en">
   <head>
@@ -143,24 +142,24 @@ async function requestHandler(req, res) {
   </body>
   </html>
       `,
-      attachments: [
-        {
-          filename: fileName,
-          content: attachCV,
-          disposition: 'attachment',
-          // contentType: 'image/jpeg',
-        },
-      ],
-    });
-
-    // if (false)
-    ackMail = await sgMail.send({
-      from: `info@staffrex.co.uk`,
-      to: emailAddress,
-      // to: 'vishwanathr.dev@outlook.com',
-      subject: 'Candidate registration',
-      text: 'Application form',
-      html: `
+        attachments: [
+          {
+            filename: fileName,
+            content: attachCV,
+            disposition: 'attachment',
+            // contentType: 'image/jpeg',
+          },
+        ],
+      },
+      async () => {
+        // if (false)
+        ackMail = await sgMail.send({
+          from: `info@staffrex.co.uk`,
+          to: emailAddress,
+          // to: 'vishwanathr.dev@outlook.com',
+          subject: 'Candidate registration',
+          text: 'Application form',
+          html: `
   Dear ${firstName},
   <br>
   <br>
@@ -173,7 +172,9 @@ async function requestHandler(req, res) {
   <br>
   Thank you.
   `,
-    });
+        });
+      }
+    );
 
     return res.status(200).json({
       data: 'Thanks for submitting the application',
