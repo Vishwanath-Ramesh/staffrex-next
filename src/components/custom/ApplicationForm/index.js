@@ -143,7 +143,7 @@ function ApplicationForm() {
     const formData = new FormData();
 
     Object.keys(state.formValues).forEach((key) =>
-      formData.append(key, state.formValues[key])
+      formData.append(key, state.formValues[key] || '-')
     );
 
     setState((currentState) => ({ ...currentState, showLoader: true }));
