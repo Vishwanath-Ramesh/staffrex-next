@@ -64,21 +64,23 @@ function ApplicationForm() {
     showNotification: false,
     showLoader: false,
     notificationMessage: '',
-    firstName: '',
-    lastName: '',
-    emailAddress: '',
-    whatsappNumber: '',
-    oetTaken: 'No',
-    oetReading: null,
-    oetWriting: null,
-    oetListening: null,
-    oetSpeaking: null,
-    ieltsTaken: 'No',
-    ieltsReading: null,
-    ieltsWriting: null,
-    ieltsListening: null,
-    ieltsSpeaking: null,
-    fileName: '',
+    formValues: {
+      firstName: '',
+      lastName: '',
+      emailAddress: '',
+      whatsappNumber: '',
+      oetTaken: 'No',
+      oetReading: null,
+      oetWriting: null,
+      oetListening: null,
+      oetSpeaking: null,
+      ieltsTaken: 'No',
+      ieltsReading: null,
+      ieltsWriting: null,
+      ieltsListening: null,
+      ieltsSpeaking: null,
+      fileName: '',
+    },
   };
   const [state, setState] = useState(initialState);
   const data = useContext(DataContext);
@@ -91,13 +93,29 @@ function ApplicationForm() {
 
       return {
         ...currentState,
-        [e.target.name]: value,
+        formValues: {
+          ...currentState.formValues,
+          [e.target.name]: value,
+        },
       };
     });
   }
 
+  async function onFileChange2(e) {
+    let file = e.target.files[0];
+
+    setState((currentState) => ({
+      ...currentState,
+      formValues: {
+        ...currentState.formValues,
+        file,
+      },
+    }));
+  }
+
   async function onFileChange(e) {
     let file = e.target.files[0];
+
     const reader = new FileReader();
 
     reader.addEventListener(
@@ -107,6 +125,7 @@ function ApplicationForm() {
         setState((currentState) => ({
           ...currentState,
           fileName: file.name,
+          file,
           [e.target.name]: reader.result,
         }));
       },
@@ -121,34 +140,30 @@ function ApplicationForm() {
   async function handleSubmit(e) {
     e.preventDefault();
 
+    const formData = new FormData();
+
+    Object.keys(state.formValues).forEach((key) =>
+      formData.append(key, state.formValues[key])
+    );
+
     setState((currentState) => ({ ...currentState, showLoader: true }));
     const response = await getAPIData(
       apiEndPoints.sendMail.method,
       apiEndPoints.sendMail.url,
-      state,
+      formData,
       {
         'content-type': 'multipart/form-data',
         // 'content-type': 'application/json',
       }
     );
 
-    if (response.status === 200) {
-      setState({
-        ...initialState,
-        showNotification: true,
-        showLoader: false,
-        severity: 'success',
-        notificationMessage: response.data.data,
-      });
-    } else {
-      setState({
-        ...initialState,
-        showNotification: true,
-        showLoader: false,
-        severity: 'error',
-        notificationMessage: JSON.stringify(response.data),
-      });
-    }
+    setState({
+      ...initialState,
+      showNotification: true,
+      showLoader: false,
+      severity: response.status === 200 ? 'success' : 'error',
+      notificationMessage: response.data.message,
+    });
   }
 
   const handleClose = (event, reason) => {
@@ -161,10 +176,12 @@ function ApplicationForm() {
 
   if (!data) return null;
 
+  const { formValues } = state;
+
   return (
     <Container
       id="application-form"
-      action=""
+      action="/apply"
       method="post"
       enctype="multipart/form-data"
       onSubmit={handleSubmit}
@@ -177,14 +194,14 @@ function ApplicationForm() {
             id="first-name"
             name="firstName"
             label={data.applicationForm.firstNameLabel}
-            value={state.firstName}
+            value={formValues.firstName}
             isMandatory
           />
           <Textbox
             id="last-name"
             name="lastName"
             label={data.applicationForm.lastNameLabel}
-            value={state.lastName}
+            value={formValues.lastName}
           />
         </div>
         <Textbox
@@ -192,7 +209,7 @@ function ApplicationForm() {
           name="emailAddress"
           type="email"
           label={data.applicationForm.emailAddressLabel}
-          value={state.emailAddress}
+          value={formValues.emailAddress}
           className="application__email"
           isMandatory
         />
@@ -201,19 +218,19 @@ function ApplicationForm() {
           name="whatsappNumber"
           label={data.applicationForm.whatsappNumberLabel}
           className="application__phone"
-          value={state.whatsappNumber}
+          value={formValues.whatsappNumber}
           isMandatory
         />
         <Radio
           name="oetTaken"
           label={data.applicationForm.takenOETLabel}
           items={data.applicationForm.OETTakenItems}
-          selectedValue={state.oetTaken}
+          selectedValue={formValues.oetTaken}
           isMandatory
         />
         <div
           className={`application__oetfields ${
-            state.oetTaken.toLowerCase() === 'no' ? 'dispnone' : ''
+            formValues.oetTaken.toLowerCase() === 'no' ? 'dispnone' : ''
           }`}
         >
           <Textbox
@@ -221,7 +238,7 @@ function ApplicationForm() {
             name="oetReading"
             type="number"
             label={data.applicationForm.OETReadingLabel}
-            value={state.oetReading}
+            value={formValues.oetReading}
             className="application__reading"
           />
           <Textbox
@@ -229,7 +246,7 @@ function ApplicationForm() {
             name="oetWriting"
             type="number"
             label={data.applicationForm.OETWritingLabel}
-            value={state.oetWriting}
+            value={formValues.oetWriting}
             className="application__writing"
           />
           <Textbox
@@ -237,7 +254,7 @@ function ApplicationForm() {
             name="oetListening"
             type="number"
             label={data.applicationForm.OETListeningLabel}
-            value={state.oetListening}
+            value={formValues.oetListening}
             className="application__listeninig"
           />
           <Textbox
@@ -245,7 +262,7 @@ function ApplicationForm() {
             name="oetSpeaking"
             type="number"
             label={data.applicationForm.OETSpeakingLabel}
-            value={state.oetSpeaking}
+            value={formValues.oetSpeaking}
             className="application__speaking"
           />
         </div>
@@ -253,12 +270,12 @@ function ApplicationForm() {
           name="ieltsTaken"
           label={data.applicationForm.takenIELTSLabel}
           items={data.applicationForm.IELTSTakenItems}
-          selectedValue={state.ieltsTaken}
+          selectedValue={formValues.ieltsTaken}
           isMandatory
         />
         <div
           className={`application__ieltsfields ${
-            state.ieltsTaken.toLowerCase() === 'no' ? 'dispnone' : ''
+            formValues.ieltsTaken.toLowerCase() === 'no' ? 'dispnone' : ''
           }`}
         >
           <Textbox
@@ -266,7 +283,7 @@ function ApplicationForm() {
             name="ieltsReading"
             type="number"
             label={data.applicationForm.IELTSReadingLabel}
-            value={state.ieltsReading}
+            value={formValues.ieltsReading}
             className="application__reading"
           />
           <Textbox
@@ -274,7 +291,7 @@ function ApplicationForm() {
             name="ieltsWriting"
             type="number"
             label={data.applicationForm.IELTSWritingLabel}
-            value={state.ieltsWriting}
+            value={formValues.ieltsWriting}
             className="application__writing"
           />
           <Textbox
@@ -282,7 +299,7 @@ function ApplicationForm() {
             name="ieltsListening"
             type="number"
             label={data.applicationForm.IELTSListeningLabel}
-            value={state.ieltsListening}
+            value={formValues.ieltsListening}
             className="application__listeninig"
           />
           <Textbox
@@ -290,7 +307,7 @@ function ApplicationForm() {
             name="ieltsSpeaking"
             type="number"
             label={data.applicationForm.IELTSSpeakingLabel}
-            value={state.ieltsSpeaking}
+            value={formValues.ieltsSpeaking}
             className="application__speaking"
           />
         </div>
@@ -298,7 +315,7 @@ function ApplicationForm() {
           name="attachCV"
           id="attach-cv"
           label={data.applicationForm.attachCVLabel}
-          onChange={onFileChange}
+          onChange={onFileChange2}
           isMandatory
           accept=".pdf,.doc,.docx,.xml,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
         />
