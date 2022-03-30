@@ -148,33 +148,11 @@ function Testimonials() {
         <div className="banner_background" />
         <Image width={250} height={300} src={nurseImage} alt="Nurse" />
         <Swiper navigation modules={[Navigation]} className="mySwiper">
-          <SwiperSlide>
-            <p>{data?.home?.testimonials?.bannerLists[0]}</p>
-          </SwiperSlide>
-          <SwiperSlide>
-            <p>{data?.home?.testimonials?.bannerLists[0]}</p>
-          </SwiperSlide>
-          <SwiperSlide>
-            <p>{data?.home?.testimonials?.bannerLists[0]}</p>
-          </SwiperSlide>
-          <SwiperSlide>
-            <p>{data?.home?.testimonials?.bannerLists[0]}</p>
-          </SwiperSlide>
-          <SwiperSlide>
-            <p>{data?.home?.testimonials?.bannerLists[0]}</p>
-          </SwiperSlide>
-          <SwiperSlide>
-            <p>{data?.home?.testimonials?.bannerLists[0]}</p>
-          </SwiperSlide>
-          <SwiperSlide>
-            <p>{data?.home?.testimonials?.bannerLists[0]}</p>
-          </SwiperSlide>
-          <SwiperSlide>
-            <p>{data?.home?.testimonials?.bannerLists[0]}</p>
-          </SwiperSlide>
-          <SwiperSlide>
-            <p>{data?.home?.testimonials?.bannerLists[0]}</p>
-          </SwiperSlide>
+          {data?.home?.testimonials?.bannerLists.map((item) => (
+            <SwiperSlide>
+              <blockquote>{item}</blockquote>
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
     </Container>
