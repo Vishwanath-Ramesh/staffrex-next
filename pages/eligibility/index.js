@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleCheck } from '@fortawesome/free-regular-svg-icons';
 
 import Button from '../../src/components/common/button';
-import { DataContext } from '../../src/components/hooks/useData';
+import { useStore } from '../../src/components/hooks/useStore';
 import nmcLogo from '../../public/assets/images/nmc-logo.jpeg';
 import nmcProcess from '../../public/assets/images/nmc-process-transparent.png';
 import applyTimeline from '../../public/assets/images/nmc-eligibility-timeline.jpeg';
@@ -135,8 +135,7 @@ const Container = styled.section`
 `;
 
 function Eligibility() {
-  const data = useContext(DataContext);
-
+  const [{ data }] = useStore();
   function handleNewsAndUpdateClick(e) {
     window.open(data.eligibility.newsAndUpdateLink, '_blank');
   }

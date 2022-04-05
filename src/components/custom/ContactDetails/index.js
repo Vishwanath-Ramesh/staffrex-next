@@ -8,6 +8,7 @@ const Container = styled.section`
   padding: 0rem 10%;
 
   h1 {
+    color: var(--primary-text);
   }
 
   h1::after {
@@ -30,7 +31,7 @@ const Container = styled.section`
     }
 
     .contactdetails__name {
-      font-weight: 600;
+      ${'' /* font-weight: 600; */}
     }
 
     .contactdetails__role {

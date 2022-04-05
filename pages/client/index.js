@@ -3,7 +3,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import styled from 'styled-components';
 
-import { DataContext } from '../../src/components/hooks/useData';
+import { useStore } from '../../src/components/hooks/useStore';
 import ContactDetails from '../../src/components/custom/ContactDetails';
 import welcomeImage from '../../public/assets/images/welcome.jpg';
 
@@ -63,6 +63,7 @@ const Container = styled.section`
     z-index: 1;
 
     h1 {
+      color: #fff;
     }
 
     p {
@@ -76,7 +77,7 @@ const Container = styled.section`
 `;
 
 function Clients() {
-  const data = useContext(DataContext);
+  const [{ data }] = useStore();
 
   return (
     <Container>

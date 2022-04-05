@@ -3,7 +3,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import styled from 'styled-components';
 
-import { DataContext } from '../../src/components/hooks/useData';
+import { useStore } from '../../src/components/hooks/useStore';
 import medicalTeam from '../../public/assets/images/successful-medical-team.jpg';
 import tabletImage from '../../public/assets/images/showing-tablet-s-blank-screen.jpg';
 import countriesOfOrigin from '../../public/assets/images/countries-of-origin.jpeg';
@@ -115,7 +115,7 @@ const Container = styled.section`
 `;
 
 function About() {
-  const data = useContext(DataContext);
+  const [{ data }] = useStore();
 
   return (
     <Container>

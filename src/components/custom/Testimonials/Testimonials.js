@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { DataContext } from '../../hooks/useData';
+import { useStore } from '../../hooks/useStore';
 import nurseImage from '../../../../public/assets/images/nurse.png';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -12,7 +12,7 @@ import 'swiper/css/navigation';
 const Container = styled.section`
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  ${'' /* gap: 2rem; */}
   min-height: 300px;
   width: 100%;
 
@@ -139,7 +139,7 @@ const Container = styled.section`
 `;
 
 function Testimonials() {
-  const data = useContext(DataContext);
+  const [{ data }] = useStore();
 
   return (
     <Container>

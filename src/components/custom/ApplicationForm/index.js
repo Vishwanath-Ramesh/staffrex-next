@@ -1,12 +1,9 @@
 import React, { useState, useContext } from 'react';
-import Snackbar from '@mui/material/Snackbar';
-import MuiAlert from '@mui/material/Alert';
-import Backdrop from '@mui/material/Backdrop';
-import CircularProgress from '@mui/material/CircularProgress';
 
 import styled from 'styled-components';
 
-import { DataContext } from '../../hooks/useData';
+import { hideLoader, showLoader, showToast } from '../../hooks/actions';
+import { useStore } from '../../hooks/useStore';
 import getAPIData from '../../../configs/api';
 import apiEndPoints from '../../../configs/apiEndPoints';
 import Textbox from '../../common/textbox';
@@ -32,6 +29,7 @@ const Container = styled.form`
     flex-direction: column;
     gap: 2rem;
     background: #fff;
+    color: #b1aaad;
     padding: 2rem 2rem;
     border-radius: 0px 0px 20px 20px;
 
@@ -52,18 +50,15 @@ const Container = styled.form`
       align-self: flex-start;
       font-weight: bold;
     }
+
+    #attach-cv {
+      font-family: inherit;
+    }
   }
 `;
 
-const Alert = React.forwardRef(function Alert(props, ref) {
-  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-});
-
 function ApplicationForm() {
   const initialState = {
-    showNotification: false,
-    showLoader: false,
-    notificationMessage: '',
     formValues: {
       firstName: '',
       lastName: '',
@@ -83,7 +78,7 @@ function ApplicationForm() {
     },
   };
   const [state, setState] = useState(initialState);
-  const data = useContext(DataContext);
+  const [{ data }, dispatch] = useStore();
 
   function handleChange(e) {
     if (e.target.name === 'attachCV') return null;
@@ -146,7 +141,8 @@ function ApplicationForm() {
       formData.append(key, state.formValues[key] || '-')
     );
 
-    setState((currentState) => ({ ...currentState, showLoader: true }));
+    dispatch(showLoader());
+
     const response = await getAPIData(
       apiEndPoints.sendMail.method,
       apiEndPoints.sendMail.url,
@@ -159,20 +155,15 @@ function ApplicationForm() {
 
     setState({
       ...initialState,
-      showNotification: true,
-      showLoader: false,
-      severity: response.status === 200 ? 'success' : 'error',
-      notificationMessage: response.data.message,
     });
+    dispatch(hideLoader());
+    dispatch(
+      showToast({
+        severity: response.status === 200 ? 'success' : 'error',
+        message: response.data.message,
+      })
+    );
   }
-
-  const handleClose = (event, reason) => {
-    if (reason === 'clickaway') {
-      return;
-    }
-
-    setState((currentState) => ({ ...currentState, showNotification: false }));
-  };
 
   if (!data) return null;
 
@@ -326,31 +317,9 @@ function ApplicationForm() {
           label={data.applicationForm.applyNowCTALabel}
         />
       </div>
-      <Snackbar
-        open={state.showNotification}
-        anchorOrigin={{
-          vertical: 'top',
-          horizontal: 'right',
-        }}
-        autoHideDuration={6000}
-        onClose={handleClose}
-      >
-        <Alert
-          onClose={handleClose}
-          severity={state.severity}
-          sx={{ width: '100%' }}
-        >
-          {state.notificationMessage}
-        </Alert>
-      </Snackbar>
-      <Backdrop
-        sx={{ color: '#f5bc34', zIndex: (theme) => theme.zIndex.drawer + 1 }}
-        open={state.showLoader}
-      >
-        <CircularProgress color="inherit" />
-      </Backdrop>
     </Container>
   );
 }
 
 export default ApplicationForm;
+

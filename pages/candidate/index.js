@@ -3,9 +3,8 @@ import Head from 'next/head';
 import Image from 'next/image';
 import styled from 'styled-components';
 
-import { DataContext } from '../../src/components/hooks/useData';
+import { useStore } from '../../src/components/hooks/useStore';
 import ContactDetails from '../../src/components/custom/ContactDetails';
-import Testimonials from '../../src/components/custom/Testimonials/Testimonials';
 import youngSpecialist from '../../public/assets/images/team-young-specialist-doctors-standing.jpg';
 
 const Container = styled.section`
@@ -72,7 +71,7 @@ const Container = styled.section`
 `;
 
 function Candidate() {
-  const data = useContext(DataContext);
+  const [{ data }] = useStore();
 
   return (
     <Container>
@@ -92,7 +91,6 @@ function Candidate() {
           </ul>
         </div>
       </header>
-      <Testimonials />
       <ContactDetails details={data?.whyChooseUs?.candidates?.contactDetails} />
     </Container>
   );

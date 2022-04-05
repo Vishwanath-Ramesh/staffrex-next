@@ -96,6 +96,7 @@ const Nav = styled.nav`
           color: #fff;
           border: 1px solid #fff;
           padding: 10px;
+          font-weight: normal;
         }
 
         a::after {

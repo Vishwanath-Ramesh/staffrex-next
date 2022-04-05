@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import styled from 'styled-components';
 
-import { DataContext } from '../../hooks/useData';
+import { useStore } from '../../hooks/useStore';
 
 const Container = styled.section`
   background-color: var(--primary-color);
@@ -50,7 +50,7 @@ const Container = styled.section`
 `;
 
 function AboutUs() {
-  const data = useContext(DataContext);
+  const [{ data }] = useStore();
 
   return (
     <Container>

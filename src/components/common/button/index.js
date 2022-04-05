@@ -14,16 +14,24 @@ const StyledButton = styled.button`
   cursor: pointer;
   outline: none;
   border: 0;
+  font-family: inherit;
+
+  &:disabled,
+  &[disabled] {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
 `;
 
 function Button(props) {
-  const { label, color, className, type, onClick } = props;
+  const { label, color, className, type, onClick, disabled } = props;
 
   return (
     <StyledButton
       className={className}
       type={type || 'button'}
       color={color}
+      disabled={disabled}
       onClick={onClick}
     >
       {label}
@@ -35,6 +43,7 @@ Button.defaultProps = {
   color: 'secondary',
   className: '',
   type: 'button',
+  disabled: false,
 };
 
 Button.propTypes = {
@@ -42,6 +51,7 @@ Button.propTypes = {
   color: PropTypes.oneOf(['primary', 'secondary']),
   className: PropTypes.string,
   type: PropTypes.string,
+  disabled: PropTypes.bool,
 };
 
 export default Button;

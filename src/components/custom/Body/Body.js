@@ -4,6 +4,10 @@ import styled from 'styled-components';
 
 import freeLancers from '../../../../public/assets/images/guy-shows-document-girl-group-young-freelancers-office-have-conversation-working.jpg';
 import surgeryNurse from '../../../../public/assets/images/young-female-surgeon-with-medical-team-back-before-surgery.jpg';
+import bookIcon from '../../../../public/assets/images/book.png';
+import handsIcon from '../../../../public/assets/images/handshake.png';
+import peopleIcon from '../../../../public/assets/images/people.png';
+import Testimonials from '../../custom/Testimonials/Testimonials';
 
 const Container = styled.div`
   background-color: #f2f3f4;
@@ -78,7 +82,18 @@ const Container = styled.div`
       color: #000;
       align-self: center;
       justify-self: center;
+      padding: 1rem;
+
+      .whatwedo__items {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+      }
     }
+  }
+
+  .banner {
+    margin-bottom: 2rem;
   }
 `;
 
@@ -100,20 +115,24 @@ function Body() {
         <Image src={surgeryNurse} alt="Surgeon" />
         <div className="whatwedo__content">
           <div className="whatwedo__items">
+            <Image alt="people" height={100} width={100} src={peopleIcon} />
             <span>Free recruitment for qualified candidates to The UK</span>
           </div>
           <div className="whatwedo__items">
+            <Image alt="handshake" height={100} width={100} src={handsIcon} />
             <span>
               We partner with the clients and source required candidates
             </span>
           </div>
           <div className="whatwedo__items">
+            <Image alt="books" height={100} width={100} src={bookIcon} />
             <span>
               We subside your load with end-to-end support and excellent service
             </span>
           </div>
         </div>
       </div>
+      <Testimonials />
     </Container>
   );
 }

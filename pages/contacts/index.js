@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import ApplicationForm from '../../src/components/custom/ApplicationForm';
 import ContactDetails from '../../src/components/custom/ContactDetails';
-import { DataContext } from '../../src/components/hooks/useData';
+import { useStore } from '../../src/components/hooks/useStore';
 
 const Container = styled.section`
   height: 100%;
@@ -30,7 +30,7 @@ const Container = styled.section`
 `;
 
 function Contacts() {
-  const data = useContext(DataContext);
+  const [{ data }] = useStore();
 
   return (
     <Container>

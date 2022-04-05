@@ -27,6 +27,8 @@ const Container = styled.footer`
 
   p {
     margin: 0rem;
+    font-weight: bold;
+    letter-spacing: 3px;
   }
 
   .footer__border {

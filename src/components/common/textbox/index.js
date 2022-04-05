@@ -9,6 +9,7 @@ const Input = styled.input`
   border: 1px solid #a8b1cc;
   color: #b1aaad;
   width: 100%;
+  font-family: inherit;
 `;
 
 function Textbox({
