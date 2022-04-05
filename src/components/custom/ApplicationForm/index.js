@@ -178,20 +178,20 @@ function ApplicationForm() {
       onSubmit={handleSubmit}
       onChange={handleChange}
     >
-      <div className="application__header">{data.applicationForm.title}</div>
+      <div className="application__header">{data?.applicationForm?.title}</div>
       <div className="application__body">
         <div className="application__name">
           <Textbox
             id="first-name"
             name="firstName"
-            label={data.applicationForm.firstNameLabel}
+            label={data?.applicationForm?.firstNameLabel}
             value={formValues.firstName}
             isMandatory
           />
           <Textbox
             id="last-name"
             name="lastName"
-            label={data.applicationForm.lastNameLabel}
+            label={data?.applicationForm?.lastNameLabel}
             value={formValues.lastName}
           />
         </div>
@@ -199,7 +199,7 @@ function ApplicationForm() {
           id="email-address"
           name="emailAddress"
           type="email"
-          label={data.applicationForm.emailAddressLabel}
+          label={data?.applicationForm?.emailAddressLabel}
           value={formValues.emailAddress}
           className="application__email"
           isMandatory
@@ -207,15 +207,15 @@ function ApplicationForm() {
         <Textbox
           id="whatsapp-number"
           name="whatsappNumber"
-          label={data.applicationForm.whatsappNumberLabel}
+          label={data?.applicationForm?.whatsappNumberLabel}
           className="application__phone"
           value={formValues.whatsappNumber}
           isMandatory
         />
         <Radio
           name="oetTaken"
-          label={data.applicationForm.takenOETLabel}
-          items={data.applicationForm.OETTakenItems}
+          label={data?.applicationForm?.takenOETLabel}
+          items={data?.applicationForm?.OETTakenItems}
           selectedValue={formValues.oetTaken}
           isMandatory
         />
@@ -228,7 +228,7 @@ function ApplicationForm() {
             id="oet-reading"
             name="oetReading"
             type="number"
-            label={data.applicationForm.OETReadingLabel}
+            label={data?.applicationForm?.OETReadingLabel}
             value={formValues.oetReading}
             className="application__reading"
           />
@@ -236,7 +236,7 @@ function ApplicationForm() {
             id="oet-writing"
             name="oetWriting"
             type="number"
-            label={data.applicationForm.OETWritingLabel}
+            label={data?.applicationForm?.OETWritingLabel}
             value={formValues.oetWriting}
             className="application__writing"
           />
@@ -244,7 +244,7 @@ function ApplicationForm() {
             id="oet-listeninig"
             name="oetListening"
             type="number"
-            label={data.applicationForm.OETListeningLabel}
+            label={data?.applicationForm?.OETListeningLabel}
             value={formValues.oetListening}
             className="application__listeninig"
           />
@@ -252,15 +252,15 @@ function ApplicationForm() {
             id="oet-speaking"
             name="oetSpeaking"
             type="number"
-            label={data.applicationForm.OETSpeakingLabel}
+            label={data?.applicationForm?.OETSpeakingLabel}
             value={formValues.oetSpeaking}
             className="application__speaking"
           />
         </div>
         <Radio
           name="ieltsTaken"
-          label={data.applicationForm.takenIELTSLabel}
-          items={data.applicationForm.IELTSTakenItems}
+          label={data?.applicationForm?.takenIELTSLabel}
+          items={data?.applicationForm?.IELTSTakenItems}
           selectedValue={formValues.ieltsTaken}
           isMandatory
         />
@@ -273,7 +273,7 @@ function ApplicationForm() {
             id="ielts-reading"
             name="ieltsReading"
             type="number"
-            label={data.applicationForm.IELTSReadingLabel}
+            label={data?.applicationForm?.IELTSReadingLabel}
             value={formValues.ieltsReading}
             className="application__reading"
           />
@@ -281,7 +281,7 @@ function ApplicationForm() {
             id="ielts-writing"
             name="ieltsWriting"
             type="number"
-            label={data.applicationForm.IELTSWritingLabel}
+            label={data?.applicationForm?.IELTSWritingLabel}
             value={formValues.ieltsWriting}
             className="application__writing"
           />
@@ -289,7 +289,7 @@ function ApplicationForm() {
             id="ielts-listeninig"
             name="ieltsListening"
             type="number"
-            label={data.applicationForm.IELTSListeningLabel}
+            label={data?.applicationForm?.IELTSListeningLabel}
             value={formValues.ieltsListening}
             className="application__listeninig"
           />
@@ -297,7 +297,7 @@ function ApplicationForm() {
             id="ielts-speaking"
             name="ieltsSpeaking"
             type="number"
-            label={data.applicationForm.IELTSSpeakingLabel}
+            label={data?.applicationForm?.IELTSSpeakingLabel}
             value={formValues.ieltsSpeaking}
             className="application__speaking"
           />
@@ -305,7 +305,7 @@ function ApplicationForm() {
         <FileUpload
           name="attachCV"
           id="attach-cv"
-          label={data.applicationForm.attachCVLabel}
+          label={data?.applicationForm?.attachCVLabel}
           onChange={onFileChange2}
           isMandatory
           accept=".pdf,.doc,.docx,.xml,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
@@ -314,7 +314,7 @@ function ApplicationForm() {
           type="submit"
           name="submit"
           className="application__submit"
-          label={data.applicationForm.applyNowCTALabel}
+          label={data?.applicationForm?.applyNowCTALabel}
         />
       </div>
     </Container>
