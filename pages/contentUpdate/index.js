@@ -9,7 +9,11 @@ import getAPIData from '../../src/configs/api';
 import apiEndPoints from '../../src/configs/apiEndPoints';
 import Button from '../../src/components/common/button';
 import { useStore } from '../../src/components/hooks/useStore';
-import { showLoader } from '../../src/components/hooks/actions';
+import {
+  hideLoader,
+  showLoader,
+  showToast,
+} from '../../src/components/hooks/actions';
 
 const DynamicReactJson = dynamic(import('react-json-view'), { ssr: false });
 
@@ -71,11 +75,14 @@ function ContentUpdate() {
         apiEndPoints.updateData.method,
         `${apiEndPoints.updateData.url}/${_id}`,
         postData
-      ),
+      ).then((response) => response.data),
     {
       onMutate: () => dispatch(showLoader()),
-      onSuccess: () => {
-        queryClient.invalidateQueries(['data', 'getStaticContent']);
+      onSuccess: (response) => {
+        queryClient.invalidateQueries(['data', 'getStaticContent']).then(() => {
+          dispatch(hideLoader());
+          dispatch(showToast({ message: JSON.stringify(response.message) }));
+        });
       },
     }
   );

@@ -4,7 +4,7 @@ import { useQuery } from 'react-query';
 import getAPIData from '../../configs/api';
 import apiEndPoints from '../../configs/apiEndPoints';
 import reducer from './dataReducer';
-import { hideLoader, setData } from './actions';
+import { setData } from './actions';
 
 const Store = createContext();
 
@@ -22,15 +22,10 @@ export function StoreProvider(props) {
   };
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  useQuery(
-    ['data', 'getStaticContent'],
-    () =>
-      getAPIData(apiEndPoints.getData.method, apiEndPoints.getData.url).then(
-        (response) => dispatch(setData(response.data.data[0]))
-      ),
-    {
-      onSuccess: () => dispatch(hideLoader()),
-    }
+  useQuery(['data', 'getStaticContent'], () =>
+    getAPIData(apiEndPoints.getData.method, apiEndPoints.getData.url).then(
+      (response) => dispatch(setData(response.data.data[0]))
+    )
   );
 
   // useEffect(() => {
